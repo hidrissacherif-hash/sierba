@@ -2974,6 +2974,14 @@ setInterval(updateCountdown, 1000);
 const savedLang = localStorage.getItem('sierba-lang') || 'fr';
 document.documentElement.setAttribute('data-lang', savedLang);
 
+function toggleLang() {
+  const current = document.documentElement.getAttribute('data-lang') || 'fr';
+  const next = current === 'fr' ? 'en' : 'fr';
+  setLang(next);
+  const btn = document.getElementById('langBtn');
+  if (btn) btn.textContent = next === 'fr' ? 'EN' : 'FR';
+}
+
 function setLang(lang) {
   localStorage.setItem('sierba-lang', lang);
   document.documentElement.setAttribute('data-lang', lang);
